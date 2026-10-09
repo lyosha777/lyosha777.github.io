@@ -1,0 +1,50 @@
+/* MirzoyAI / motion layer — restrained, responsive, reduced-motion friendly */
+:root{--motion-ink:#1b2526;--motion-accent:#b3543d;--motion-rule:#d4d4cd}
+html{scroll-behavior:smooth}body{cursor:default}
+#header{box-shadow:0 1px 0 rgba(22,33,34,.08)}
+#header .links a{position:relative}#header .links a:after{content:"";position:absolute;left:0;right:100%;bottom:10px;height:1px;background:var(--motion-accent);transition:right .24s ease}#header .links a:hover:after,#header .links a:focus-visible:after{right:0}
+.intro-lead{position:relative;overflow:hidden}
+.intro-lead:before{content:"";position:absolute;inset:0 0 auto auto;width:140px;height:140px;background:repeating-linear-gradient(90deg,transparent 0 19px,rgba(50,60,56,.055) 20px),repeating-linear-gradient(0deg,transparent 0 19px,rgba(50,60,56,.055) 20px);mask-image:linear-gradient(135deg,#000,transparent 80%);pointer-events:none}
+.intro-lead h2{font-size:clamp(3.25rem,5.25vw,5.65rem)!important;letter-spacing:-.065em!important;line-height:1.035!important;max-width:760px}
+.intro-lead h2 em{color:#415d55}
+.intro-lead .lead-summary{max-width:640px}
+.editorial-link{transition:color .2s ease,border-color .2s ease,transform .2s ease;display:inline-flex;gap:.3em;align-items:center}
+.editorial-link:hover,.editorial-link:focus-visible{transform:translateX(5px);color:var(--motion-accent)!important}
+.project.post{transition:box-shadow .32s ease,transform .32s ease,border-color .32s ease;will-change:auto}
+.project.post:hover{box-shadow:0 15px 38px rgba(31,38,35,.075);transform:translateY(-3px)}
+.project.post .title h2{transition:letter-spacing .25s ease,color .25s ease}
+.project.post:hover .title h2{letter-spacing:-.035em;color:#415d55}
+.artifact{position:relative;overflow:hidden;transition:border-color .3s ease,box-shadow .3s ease}
+.project.post:hover .artifact{box-shadow:inset 0 0 0 1px rgba(179,84,61,.18)}
+.artifact-pipeline .pipeline>div{transition:transform .22s ease,background-color .22s ease,border-color .22s ease}
+.artifact-pipeline .pipeline>div:hover{transform:translateY(-5px);border-color:#b3543d;background:#fffdf9}
+.chess-board .chess-square{transition:background-color .18s ease,color .18s ease,transform .18s ease}
+.chess-board .chess-square:hover{position:relative;z-index:2;transform:scale(1.12);outline:2px solid #b3543d;outline-offset:-2px}
+.artifact-path svg polyline{stroke-dasharray:14 7;animation:path-drift 12s linear infinite}
+@keyframes path-drift{to{stroke-dashoffset:-210}}
+.sidebar-index a{transition:padding-left .22s ease,color .22s ease}
+.sidebar-index a:hover{padding-left:8px;color:var(--motion-accent)}
+/* One intentional visual feature: an animated systems sketch, not a decorative blob. */
+.systems-sketch{position:relative;margin:32px 0 6px;border:1px solid #c9cec8;background:#e9eeea;color:#31423c;padding:17px 20px 12px;overflow:hidden}
+.systems-sketch .sketch-head{display:flex;justify-content:space-between;gap:12px;font:10px/1.4 'Courier New',monospace;letter-spacing:.11em;text-transform:uppercase;color:#55665e}
+.systems-sketch svg{display:block;width:100%;height:auto;margin-top:10px}
+.systems-sketch .sketch-foot{font:10px/1.5 'Courier New',monospace;color:#65736d;letter-spacing:.04em;border-top:1px solid #c8d0ca;padding-top:9px;display:flex;justify-content:space-between}
+.systems-sketch .link-line{stroke:#8b9e92;stroke-width:1.3;stroke-dasharray:3 7;animation:sketch-flow 18s linear infinite}
+@keyframes sketch-flow{to{stroke-dashoffset:-180}}
+.systems-sketch .signal{fill:#b3543d;offset-path:path('M 70 70 L 230 70 L 410 70 L 580 70');animation:signal-travel 7s ease-in-out infinite;filter:none}
+@keyframes signal-travel{0%{offset-distance:0%;opacity:0}7%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.systems-sketch .node{fill:#e9eeea;stroke:#50665a;stroke-width:1.6;transition:fill .3s ease,stroke .3s ease}
+.systems-sketch .node-group:hover .node{fill:#d5e0d6;stroke:#b3543d}
+.systems-sketch text{font-family:'Courier New',monospace;font-size:11px;fill:#43584e;letter-spacing:1px}
+.systems-sketch .node-index{font-size:9px;fill:#b3543d}
+/* Scroll reveal only when JS activates it. No flash of hidden content without JS. */
+.motion-ready .reveal-on-scroll{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .reveal-on-scroll.is-visible{opacity:1;transform:none}
+.motion-ready .intro-lead .overline{animation:hero-in .55s both}
+.motion-ready .intro-lead h2{animation:hero-in .7s .1s both}
+.motion-ready .intro-lead .lead-summary{animation:hero-in .7s .22s both}
+.motion-ready .intro-lead .lead-cta{animation:hero-in .7s .3s both}
+@keyframes hero-in{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+:focus-visible{outline:2px solid #b3543d!important;outline-offset:4px}
+@media(max-width:736px){.intro-lead h2{font-size:clamp(2.7rem,10vw,4.1rem)!important}.systems-sketch{padding:12px}.systems-sketch .sketch-head,.systems-sketch .sketch-foot{font-size:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.motion-ready .reveal-on-scroll{opacity:1!important;transform:none!important}.project.post:hover{transform:none}}

@@ -1,0 +1,14 @@
+MIRZOYAI / Editorial portfolio — deployment
+
+This folder contains an adapted version of HTML5 UP Future Imperfect.
+
+GitHub Pages expects index.html, assets/, images/, projects/, and CNAME at the repository ROOT.
+
+1. Extract this ZIP to a separate folder.
+2. Copy its contents (not the enclosing folder) into lyosha777.github.io.
+3. Check git status --short before staging.
+4. Stage only index.html, single.html, projects/, assets/css/editorial.css, images/favicon.svg, CNAME, .nojekyll, README-MIRZOYAI.txt and DEPLOY.txt if the base template is already present.
+5. git commit and git push.
+
+Links and text are intentionally factual and avoid inflated claims.
+Chessonality is described as in development; ROS 2 as a learning exercise.
